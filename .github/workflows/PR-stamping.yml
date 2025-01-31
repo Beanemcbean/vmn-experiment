@@ -11,6 +11,8 @@ jobs:
         steps:
             - uses: actions/checkout@v2
             - name: Install vmn
-              run: pip install vmn
+              run: |
+                pip install vmn
+                vmn init
             - name: Run vmn stamp
               run: vmn stamp --pr ${{ github.event.number }} app
