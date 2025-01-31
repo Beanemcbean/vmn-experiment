@@ -13,6 +13,6 @@ jobs:
             - name: Install vmn
               run: |
                 pip install vmn
-                vmn init
+                vmn --debug init
             - name: Run vmn stamp
               run: vmn stamp --pr ${{ github.event.number }} app
