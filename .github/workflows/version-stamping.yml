@@ -1,0 +1,16 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [ "main" ]
+    types: [closed]
+
+jobs:
+    version_stamp:
+      if: github.event.pull_request.merged == true
+      runs-on: ubuntu-latest
+  
+      steps:
+        - uses: actions/checkout@v2
+        - name: Run vmn stamp
+          run: vmn stamp --r ${{ fromJson('{}') }} app
