@@ -1,0 +1,14 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+    
+        steps:
+            - uses: actions/checkout@v2
+            - name: Run vmn stamp
+              run: vmn stamp --pr ${{ github.event.number }} app
